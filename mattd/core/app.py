@@ -65,8 +65,9 @@ class MattDaemon(object):
             'run-length': one_second_in_nanoseconds,
             'pre-length': one_second_in_nanoseconds,
         }
+        filename = '/path/to/file.mp3'
         self.pipeline = gst.parse_launch(
-            'gconfaudiosrc ! audioconvert ! audioresample '
+            'filesrc location=%s ! mp3parse ! ffdec_mp3 ! audioconvert ! audioresample ' % filename
             + '! vader %s ' % dict2properties(vader_properties)
             + '! pocketsphinx name=asr ! fakesink')
         asr = self.pipeline.get_by_name('asr')
