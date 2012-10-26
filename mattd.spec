@@ -16,6 +16,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-daemon
 
 Requires:       python-daemon
+Requires:       pocketsphinx
 Requires:       pocketsphinx-plugin
 Requires:       gstreamer-python
 Requires:       pygtk2
