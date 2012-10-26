@@ -82,6 +82,7 @@ class MattDaemon(object):
 
     def asr_partial_result(self, asr, text, uttid):
         """Forward partial result signals on the bus to the main thread."""
+        log.info("asr_partial_result(%s)" % locals())
         struct = gst.Structure('partial_result')
         struct.set_value('hyp', text)
         struct.set_value('uttid', uttid)
@@ -89,6 +90,7 @@ class MattDaemon(object):
 
     def asr_result(self, asr, text, uttid):
         """Forward result signals on the bus to the main thread."""
+        log.info("asr_result(%s)" % locals())
         struct = gst.Structure('result')
         struct.set_value('hyp', text)
         struct.set_value('uttid', uttid)
